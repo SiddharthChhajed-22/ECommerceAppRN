@@ -1,8 +1,8 @@
 import reducer, {
   addItemDirect,
   clearCart,
-} from '../../features/cart/redux/cartSlice';
-import type { Product } from '../../ui/molecules/ProductCard';
+} from '../../../store/cart/cartSlice';
+import type { Product } from '../../components/molecules/ProductCard/types';
 
 const product: Product = {
   id: '1',

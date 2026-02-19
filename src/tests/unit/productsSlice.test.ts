@@ -2,8 +2,8 @@ import reducer, {
   fetchProductsFailed,
   fetchProductsRequested,
   fetchProductsSucceeded,
-} from '../../features/home/redux/productsSlice';
-import type { Product } from '../../ui/molecules/ProductCard';
+} from '../../../store/products/productsSlice';
+import type { Product } from '../../components/molecules/ProductCard/types';
 
 const p = (id: string): Product => ({
   id,

@@ -1,13 +1,28 @@
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppInner from './src/app/App';
+import { Provider, useSelector } from 'react-redux';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { store } from './store/store';
+import { registerAuthTokenGetter } from './src/api/network/axiosBase';
+import { RootState } from './store/rootReducer';
 
-function App(): React.JSX.Element {
-  return (
-    <SafeAreaProvider>
-      <AppInner />
-    </SafeAreaProvider>
-  );
-}
+const TokenRegistrar = () => {
+  const token = useSelector((state: RootState) => state.auth.token);
+  registerAuthTokenGetter(() => token);
+  return null;
+};
+
+const AppInner = () => (
+  <>
+    <TokenRegistrar />
+    <AppNavigator />
+  </>
+);
+
+const App = () => (
+  <Provider store={store}>
+    <AppInner />
+  </Provider>
+);
 
 export default App;
+

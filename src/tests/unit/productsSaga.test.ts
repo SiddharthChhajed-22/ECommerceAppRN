@@ -1,12 +1,12 @@
 import { call, put } from 'redux-saga/effects';
-import { handleFetchProducts } from '../../features/home/redux/productsSaga';
+import { handleFetchProducts } from '../../../store/products/productsSaga';
 import {
   fetchProductsFailed,
   fetchProductsRequested,
   fetchProductsSucceeded,
-} from '../../features/home/redux/productsSlice';
-import { HARD_CODED } from '../../core/config/constants';
-import { container } from '../../core/di/container';
+} from '../../../store/products/productsSlice';
+import { HARD_CODED } from '../../api/config/constants';
+import { container } from '../../di/container';
 
 describe('productsSaga (unit)', () => {
   it('yields call(getProducts) then put(success) on happy path', () => {
