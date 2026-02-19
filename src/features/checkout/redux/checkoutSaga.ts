@@ -14,17 +14,10 @@ function* handleCheckout(): SagaIterator {
   try {
     const cartItems: RootState['cart']['items'] = yield select((state: RootState) => state.cart.items);
     const total: number = cartItems.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
-    
-    // Create order first
     yield call([container.orderService, 'createOrder'], total);
-    
-    // Then checkout
     yield call([container.checkoutService, 'checkout'], { items: cartItems });
-    
     yield put(checkoutSucceeded());
     yield put(clearCart());
-    
-    // Fetch updated orders list after successful checkout (with refresh flag)
     yield put(fetchOrdersRequested({ page: 1, refresh: true }));
   } catch (e: any) {
     yield put(checkoutFailed(e.message ?? 'Checkout failed'));
