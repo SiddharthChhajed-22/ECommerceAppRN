@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { STATIC_DELAY_MS } from '../config/constants';
 
 let getAuthToken: (() => string | null) | null = null;
@@ -14,21 +14,18 @@ export const createAxiosClient = (baseURL: string): AxiosInstance => {
     timeout: 5000,
   });
 
-  instance.interceptors.request.use(config => {
+  instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
     if (getAuthToken) {
       const token = getAuthToken();
       if (token) {
-        config.headers = {
-          ...(config.headers || {}),
-          Authorization: `Bearer ${token}`,
-        };
+        config.headers.set('Authorization', `Bearer ${token}`);
       }
     }
     return config;
   });
 
   instance.interceptors.response.use(async response => {
-    await new Promise(res => setTimeout(res, STATIC_DELAY_MS));
+    await new Promise<void>(resolve => setTimeout(() => resolve(), STATIC_DELAY_MS));
     return response;
   });
 
