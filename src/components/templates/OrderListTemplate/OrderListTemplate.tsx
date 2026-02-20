@@ -6,7 +6,7 @@ import { NavigationHeader } from '../../molecules/NavigationHeader';
 import { Loader } from '../../atoms/Loader';
 import { AppText } from '../../atoms/AppText';
 import { colors } from '../../../theme/colors';
-import type { Order } from '../../../../store/orders/ordersSlice';
+import type { Order } from '../../../../../store/orders/ordersSlice';
 import { orderListTemplateStyles } from './styles';
 import type { OrderListTemplateProps } from './types';
 

@@ -2,8 +2,8 @@ import reducer, {
   fetchOrdersFailed,
   fetchOrdersRequested,
   fetchOrdersSucceeded,
-} from '../../../store/orders/ordersSlice';
-import type { Order } from '../../../store/orders/ordersSlice';
+} from '../../store/orders/ordersSlice';
+import type { Order } from '../../store/orders/ordersSlice';
 
 const o = (id: string, total = 100, status = 'Processing'): Order => ({
   id,

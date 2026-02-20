@@ -1,4 +1,4 @@
-import type { CartItem } from '../../../../store/cart/cartSlice';
+import type { CartItem } from '../../../../../store/cart/cartSlice';
 
 export type CheckoutTemplateProps = {
   cartItems: CartItem[];

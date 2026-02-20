@@ -5,7 +5,7 @@ import { STATIC_DELAY_MS } from '../api/config/constants';
 type GetProductsParams = { page: number; pageSize: number };
 
 const delay = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+  new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
 
 export class ProductService {
   constructor(private client: AxiosInstance) {}

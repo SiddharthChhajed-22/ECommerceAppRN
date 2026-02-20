@@ -1,10 +1,16 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '../../../store/rootReducer';
-import { checkoutRequested, resetCheckout } from '../../../store/checkout';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../../navigation/AppNavigator';
+import type { RootState } from '../../store/rootReducer';
+import { checkoutRequested, resetCheckout } from '../../store/checkout';
+
+type CheckoutNavProp = NativeStackNavigationProp<RootStackParamList, 'Checkout'>;
 
 export const useCheckoutData = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation<CheckoutNavProp>();
   const { loading, success, error } = useSelector(
     (state: RootState) => state.checkout,
   );
@@ -22,6 +28,22 @@ export const useCheckoutData = () => {
     dispatch(resetCheckout());
   }, [dispatch]);
 
+  useEffect(() => {
+    reset();
+  }, [reset]);
+
+  const onBack = useCallback(() => {
+    if (success) {
+      navigation.navigate('Main');
+    } else {
+      navigation.goBack();
+    }
+  }, [navigation, success]);
+
+  const onContinueShopping = useCallback(() => {
+    navigation.navigate('Main');
+  }, [navigation]);
+
   return {
     loading,
     success,
@@ -30,5 +52,7 @@ export const useCheckoutData = () => {
     reset,
     cartItems,
     total,
+    onBack,
+    onContinueShopping,
   };
 };

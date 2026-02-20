@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { Product } from '../../src/components/molecules/ProductCard/types';
+import type { Product } from '../../components/molecules/ProductCard/types';
 
 export type CartItem = Product & { quantity: number };
 

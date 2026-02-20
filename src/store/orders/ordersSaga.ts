@@ -5,8 +5,8 @@ import {
   fetchOrdersSucceeded,
   fetchOrdersFailed,
 } from './ordersSlice';
-import { container } from '../../src/di/container';
-import { HARD_CODED } from '../../src/api/config/constants';
+import { container } from '../../di/container';
+import { HARD_CODED } from '../../api/config/constants';
 
 function* handleFetchOrders(
   action: ReturnType<typeof fetchOrdersRequested>,

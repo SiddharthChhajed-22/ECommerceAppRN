@@ -1,7 +1,7 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import { addItem, addItemDirect } from './cartSlice';
-import type { RootState } from '../../app/store/rootReducer';
+import type { RootState } from '../rootReducer';
 
 function* handleAddItem(action: ReturnType<typeof addItem>): SagaIterator {
   const id = action.payload;

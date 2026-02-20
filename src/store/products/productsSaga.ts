@@ -5,8 +5,8 @@ import {
   fetchProductsSucceeded,
   fetchProductsFailed,
 } from './productsSlice';
-import { container } from '../../src/di/container';
-import { HARD_CODED } from '../../src/api/config/constants';
+import { container } from '../../di/container';
+import { HARD_CODED } from '../../api/config/constants';
 
 export function* handleFetchProducts(
   action: ReturnType<typeof fetchProductsRequested>,

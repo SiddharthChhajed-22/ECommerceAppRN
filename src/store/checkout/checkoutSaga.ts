@@ -5,7 +5,7 @@ import {
   checkoutSucceeded,
   checkoutFailed,
 } from './checkoutSlice';
-import { container } from '../../src/di/container';
+import { container } from '../../di/container';
 import type { RootState } from '../rootReducer';
 import { clearCart } from '../cart/cartSlice';
 import { fetchOrdersRequested } from '../orders/ordersSlice';

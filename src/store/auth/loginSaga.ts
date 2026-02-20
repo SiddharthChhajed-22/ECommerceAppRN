@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import { loginRequested, loginSucceeded, loginFailed } from './authSlice';
-import { container } from '../../src/di/container';
+import { container } from '../../di/container';
 
 export function* handleLogin(action: ReturnType<typeof loginRequested>): SagaIterator {
   try {

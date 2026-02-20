@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { FlatList, ListRenderItem, RefreshControl, View, ActivityIndicator } from 'react-native';
 import { ProductCard, Product } from '../../molecules/ProductCard';
 import { colors } from '../../../theme/colors';
@@ -15,14 +15,6 @@ const ProductListComponent: React.FC<ProductListProps> = ({
   onEndReached,
   onAddToCart,
 }) => {
-  const loadingRef = useRef(false);
-
-  useEffect(() => {
-    if (!loadingMore) {
-      loadingRef.current = false;
-    }
-  }, [loadingMore]);
-
   const renderItem: ListRenderItem<Product> = useCallback(
     ({ item }) => <ProductCard product={item} onAddToCart={onAddToCart} />,
     [onAddToCart],
@@ -44,18 +36,8 @@ const ProductListComponent: React.FC<ProductListProps> = ({
   }, [loadingMore, hasMore, products.length]);
 
   const handleEndReached = useCallback(() => {
-    if (loadingRef.current || loading || loadingMore || refreshing || !hasMore) {
-      return;
-    }
-
-    if (products.length > 0 && hasMore) {
-      loadingRef.current = true;
-      onEndReached();
-      setTimeout(() => {
-        loadingRef.current = false;
-      }, 1500);
-    }
-  }, [loading, loadingMore, hasMore, refreshing, products.length, onEndReached]);
+    onEndReached();
+  }, [onEndReached]);
 
   const handleRefresh = useCallback(() => {
     onRefresh();

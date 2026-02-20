@@ -1,4 +1,4 @@
-import type { Order } from '../../../../store/orders/ordersSlice';
+import type { Order } from '../../../../../store/orders/ordersSlice';
 
 export type OrderListTemplateProps = {
   orders: Order[];

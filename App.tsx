@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider, useSelector } from 'react-redux';
 import { AppNavigator } from './src/navigation/AppNavigator';
-import { store } from './store/store';
+import { store } from './src/store/store';
 import { registerAuthTokenGetter } from './src/api/network/axiosBase';
-import { RootState } from './store/rootReducer';
+import { RootState } from './src/store/rootReducer';
 
 const TokenRegistrar = () => {
   const token = useSelector((state: RootState) => state.auth.token);

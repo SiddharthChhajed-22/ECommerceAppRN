@@ -1,7 +1,7 @@
 import reducer, {
   addItemDirect,
   clearCart,
-} from '../../../store/cart/cartSlice';
+} from '../../store/cart/cartSlice';
 import type { Product } from '../../components/molecules/ProductCard/types';
 
 const product: Product = {

@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import type { CartItem } from '../../store/cart/cartSlice';
+import type { CartItem } from '../store/cart/cartSlice';
 
 type CheckoutDto = { items: CartItem[] };
 

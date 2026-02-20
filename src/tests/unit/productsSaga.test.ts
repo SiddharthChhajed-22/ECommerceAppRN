@@ -1,10 +1,10 @@
 import { call, put } from 'redux-saga/effects';
-import { handleFetchProducts } from '../../../store/products/productsSaga';
+import { handleFetchProducts } from '../../store/products/productsSaga';
 import {
   fetchProductsFailed,
   fetchProductsRequested,
   fetchProductsSucceeded,
-} from '../../../store/products/productsSlice';
+} from '../../store/products/productsSlice';
 import { HARD_CODED } from '../../api/config/constants';
 import { container } from '../../di/container';
 
@@ -38,7 +38,8 @@ describe('productsSaga (unit)', () => {
     // advance to first yield (call)
     gen.next();
     const expectedPut = put(fetchProductsFailed('Failed to load products'));
-    expect(gen.throw({ message: undefined }).value).toEqual(expectedPut);
+    const error = { message: undefined } as any;
+    expect(gen.throw(error).value).toEqual(expectedPut);
   });
 });
 

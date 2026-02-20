@@ -1,11 +1,16 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useFocusEffect } from '@react-navigation/native';
-import type { RootState } from '../../../store/rootReducer';
-import { fetchOrdersRequested } from '../../../store/orders';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { MainStackParamList } from '../../navigation/MainNavigator';
+import type { RootState } from '../../store/rootReducer';
+import { fetchOrdersRequested } from '../../store/orders';
+
+type OrdersNavProp = NativeStackNavigationProp<MainStackParamList, 'Orders'>;
 
 export const useOrdersData = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation<OrdersNavProp>();
   const { items, page, hasMore, loading, refreshing, loadingMore } =
     useSelector((state: RootState) => state.orders);
   const hasFetchedRef = useRef(false);
@@ -59,14 +64,18 @@ export const useOrdersData = () => {
     }
   }, [dispatch, loading, loadingMore, hasMore, page, refreshing, items.length]);
 
+  const onBack = useCallback(() => {
+    navigation.goBack();
+  }, [navigation]);
+
   return {
     orders: items,
     loading,
     refreshing,
     loadingMore,
     hasMore,
-    error: null,
-    refresh,
-    loadMore,
+    onRefresh: refresh,
+    onLoadMore: loadMore,
+    onBack,
   };
 };

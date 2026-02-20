@@ -2,7 +2,7 @@ import reducer, {
   fetchProductsFailed,
   fetchProductsRequested,
   fetchProductsSucceeded,
-} from '../../../store/products/productsSlice';
+} from '../../store/products/productsSlice';
 import type { Product } from '../../components/molecules/ProductCard/types';
 
 const p = (id: string): Product => ({
