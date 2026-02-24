@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../../theme/colors';
-import { commonStyles } from '../../../theme/commonStyles';
+import { spacing } from '../../../theme/spacing';
 
 export const authTemplateStyles = StyleSheet.create({
   safeArea: {
@@ -12,19 +12,22 @@ export const authTemplateStyles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    padding: 16,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.xl,
     justifyContent: 'center',
+    maxWidth: 400,
+    alignSelf: 'center',
+    width: '100%',
   },
   header: {
-    marginBottom: 32,
+    marginBottom: spacing.xl,
     alignItems: 'center',
   },
   body: {
-    flex: 1,
-    justifyContent: 'center',
+    marginBottom: spacing.lg,
   },
   footer: {
-    marginTop: 24,
+    marginTop: spacing.lg,
     alignItems: 'center',
   },
 });

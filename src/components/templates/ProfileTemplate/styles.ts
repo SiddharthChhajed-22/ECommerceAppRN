@@ -6,13 +6,13 @@ export const profileTemplateStyles = StyleSheet.create({
   container: { flex: 1 },
   contentContainer: { flexGrow: 1, paddingBottom: spacing.xl },
   profileSection: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     padding: spacing.lg,
-    borderRadius: 8,
+    borderRadius: 12,
     marginBottom: spacing.md,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
   },
-  actionsSection: { marginTop: spacing.md },
+  actionsSection: { marginTop: spacing.lg },
   logoutButton: { backgroundColor: colors.error },
 });

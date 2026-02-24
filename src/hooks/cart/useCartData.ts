@@ -5,7 +5,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { MainStackParamList } from '../../navigation/MainNavigator';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
 import type { RootState } from '../../store/rootReducer';
-import { addItem, clearCart } from '../../store/cart';
+import { addItem, clearCart, removeItem } from '../../store/cart';
 
 type CartNavProp = NativeStackNavigationProp<MainStackParamList, 'Cart'>;
 type RootNavProp = NativeStackNavigationProp<RootStackParamList>;
@@ -27,6 +27,13 @@ export const useCartData = () => {
     dispatch(clearCart());
   }, [dispatch]);
 
+  const removeCartItem = useCallback(
+    (productId: string) => {
+      dispatch(removeItem(productId));
+    },
+    [dispatch],
+  );
+
   const onCheckout = useCallback(() => {
     if (items.length === 0) return;
     rootNavigation.navigate('Checkout');
@@ -45,5 +52,5 @@ export const useCartData = () => {
     0,
   );
 
-  return { items, addToCart, emptyCart, total, onCheckout, onBrowseProducts, onBack };
+  return { items, addToCart, emptyCart, removeCartItem, total, onCheckout, onBrowseProducts, onBack };
 };

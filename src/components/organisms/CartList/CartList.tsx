@@ -5,7 +5,7 @@ import { AppText } from '../../atoms/AppText';
 import { cartListStyles } from './styles';
 import type { CartListProps } from './types';
 
-const CartListComponent: React.FC<CartListProps> = ({ items }) => {
+const CartListComponent: React.FC<CartListProps> = ({ items, onRemoveItem }) => {
   if (items.length === 0) {
     return null;
   }
@@ -21,6 +21,8 @@ const CartListComponent: React.FC<CartListProps> = ({ items }) => {
             name={item.name}
             price={item.price}
             quantity={item.quantity}
+            productId={item.id}
+            onRemove={onRemoveItem ? () => onRemoveItem(item.id) : undefined}
           />
         </View>
       ))}

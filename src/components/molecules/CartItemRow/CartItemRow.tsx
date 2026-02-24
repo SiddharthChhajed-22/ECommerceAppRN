@@ -1,11 +1,16 @@
 import React, { memo } from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { AppText } from '../../atoms/AppText';
 import { HARD_CODED } from '../../../api/config/constants';
 import { cartItemRowStyles } from './styles';
 import type { CartItemRowProps } from './types';
 
-const CartItemRowComponent: React.FC<CartItemRowProps> = ({ name, price, quantity }) => {
+const CartItemRowComponent: React.FC<CartItemRowProps> = ({
+  name,
+  price,
+  quantity,
+  onRemove,
+}) => {
   const subtotal = price * quantity;
 
   return (
@@ -24,6 +29,15 @@ const CartItemRowComponent: React.FC<CartItemRowProps> = ({ name, price, quantit
           {HARD_CODED.productCurrency}
           {subtotal.toFixed(2)}
         </AppText>
+        {onRemove && (
+          <TouchableOpacity
+            onPress={onRemove}
+            style={cartItemRowStyles.removeButton}
+            activeOpacity={0.7}
+          >
+            <AppText style={cartItemRowStyles.removeText}>Remove</AppText>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

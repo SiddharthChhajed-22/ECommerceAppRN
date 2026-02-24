@@ -4,36 +4,41 @@ import { spacing } from '../../../theme/spacing';
 
 export const navigationHeaderStyles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
-    paddingVertical: spacing.md,
+    backgroundColor: colors.surface,
+    paddingVertical: spacing.sm,
     paddingHorizontal: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    marginBottom: spacing.md,
+    minHeight: 48,
+    justifyContent: 'center',
   },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing.sm,
+    justifyContent: 'center',
+    position: 'relative',
   },
   backButton: {
-    marginRight: spacing.sm,
+    position: 'absolute',
+    left: 0,
     paddingVertical: spacing.xs,
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.xs,
   },
   backText: {
     color: colors.primary,
     fontSize: 16,
+    fontWeight: '500',
   },
   title: {
-    flex: 1,
+    color: colors.textPrimary,
+    textAlign: 'center',
   },
   rightComponent: {
-    marginLeft: spacing.sm,
+    position: 'absolute',
+    right: 0,
   },
   navRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    marginTop: spacing.xs,
   },
   navButtonWrapper: {
     flex: 1,

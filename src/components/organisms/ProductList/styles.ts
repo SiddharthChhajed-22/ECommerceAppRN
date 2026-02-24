@@ -3,8 +3,8 @@ import { spacing } from '../../../theme/spacing';
 
 export const productListStyles = StyleSheet.create({
   contentContainer: {
-    paddingBottom: spacing.xl,
-    paddingHorizontal: spacing.sm,
+    paddingBottom: spacing.xxl,
+    paddingHorizontal: 0,
   },
   footer: {
     paddingVertical: spacing.lg,

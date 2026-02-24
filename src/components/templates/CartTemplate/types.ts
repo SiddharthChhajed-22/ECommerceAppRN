@@ -5,6 +5,7 @@ export type CartTemplateProps = {
   total: number;
   currencySymbol: string;
   onEmptyCart: () => void;
+  onRemoveItem?: (productId: string) => void;
   onBrowseProducts: () => void;
   onCheckout: () => void;
   onBack: () => void;

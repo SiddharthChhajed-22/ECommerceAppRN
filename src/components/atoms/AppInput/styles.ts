@@ -4,13 +4,14 @@ import { spacing } from '../../../theme/spacing';
 
 export const appInputStyles = StyleSheet.create({
   input: {
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    borderRadius: 8,
+    borderRadius: 10,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
+    fontSize: 16,
     color: colors.textPrimary,
-    marginBottom: spacing.md,
+    backgroundColor: colors.surface,
   },
 });
 

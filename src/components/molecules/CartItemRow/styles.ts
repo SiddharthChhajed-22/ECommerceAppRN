@@ -29,5 +29,15 @@ export const cartItemRowStyles = StyleSheet.create({
   subtotal: {
     color: colors.primary,
   },
+  removeButton: {
+    marginTop: spacing.xs,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+  },
+  removeText: {
+    color: colors.error,
+    fontSize: 13,
+    fontWeight: '600',
+  },
 });
 

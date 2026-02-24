@@ -13,7 +13,7 @@ const BottomNavBarComponent: React.FC<BottomNavBarProps> = ({ items, onNavPress 
 
   return (
     <View style={bottomNavBarStyles.container}>
-      {items.map((item) => (
+      {items.map(item => (
         <TouchableOpacity
           key={item.screen}
           style={bottomNavBarStyles.navItem}

@@ -13,6 +13,7 @@ export const CartTemplate: React.FC<CartTemplateProps> = ({
   total,
   currencySymbol,
   onEmptyCart,
+  onRemoveItem,
   onBrowseProducts,
   onCheckout,
   onBack,
@@ -44,7 +45,7 @@ export const CartTemplate: React.FC<CartTemplateProps> = ({
       ) : (
         <>
           <View style={cartTemplateStyles.cartList}>
-            <CartList items={items} />
+            <CartList items={items} onRemoveItem={onRemoveItem} />
           </View>
           <View style={cartTemplateStyles.footer}>
             <View style={cartTemplateStyles.totalContainer}>

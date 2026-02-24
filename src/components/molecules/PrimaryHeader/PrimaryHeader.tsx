@@ -6,7 +6,9 @@ import type { PrimaryHeaderProps } from './types';
 
 export const PrimaryHeader: React.FC<PrimaryHeaderProps> = ({ title }) => (
   <View style={primaryHeaderStyles.container}>
-    <AppText variant="heading">{title}</AppText>
+    <AppText variant="heading" style={primaryHeaderStyles.title}>
+      {title}
+    </AppText>
   </View>
 );
 

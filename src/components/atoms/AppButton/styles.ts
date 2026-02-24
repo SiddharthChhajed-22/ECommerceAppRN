@@ -7,7 +7,7 @@ export const appButtonStyles = StyleSheet.create({
     backgroundColor: colors.primary,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.lg,
-    borderRadius: 8,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 48,

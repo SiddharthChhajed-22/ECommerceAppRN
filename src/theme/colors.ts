@@ -1,13 +1,18 @@
+/**
+ * App color palette. Used across components for consistency.
+ */
 export const colors = {
-  primary: '#1E88E5',
-  primaryDark: '#1565C0',
-  accent: '#FF7043',
-  background: '#F5F5F5',
-  textPrimary: '#212121',
-  textSecondary: '#757575',
-  border: '#E0E0E0',
-  error: '#D32F2F',
+  primary: '#2563EB',
+  primaryDark: '#1D4ED8',
+  accent: '#F59E0B',
+  background: '#F8FAFC',
+  surface: '#FFFFFF',
+  textPrimary: '#1E293B',
+  textSecondary: '#64748B',
+  border: '#E2E8F0',
+  error: '#DC2626',
+  success: '#059669',
   white: '#FFFFFF',
-  black: '#000000',
+  black: '#0F172A',
 };
 
